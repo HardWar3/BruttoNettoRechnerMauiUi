@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BruttoNettoRechnerMauiUi.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" WidthRequest="360">Butto Gehalt :</Label>
+                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="8" WidthRequest="140" Text="3000" Keyboard="Numeric"></Editor>
+                <Label VerticalTextAlignment="Center">€</Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Abrechnungsart :</Label>
+                <RadioButton Content="Monat" IsChecked="True"></RadioButton>
+                <RadioButton Content="Jahr"></RadioButton>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Abrechnungsjahr :</Label>
+                <Picker x:Name="abrechungsjahr" WidthRequest="140" SelectedIndex="0">
+                    <Picker.Items>
+                        <x:String>2024</x:String>
+                        <x:String>2025</x:String>
+                    </Picker.Items>
+                </Picker>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" WidthRequest="360">Versorgungsbezüge :</Label>
+                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="6" WidthRequest="140" Text="0" Keyboard="Numeric"></Editor>
+                <Label VerticalTextAlignment="Center">€</Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Steuerklasse :</Label>
+                <Picker x:Name="steuerklasse" 
+                        SelectedIndex="0"
+                        WidthRequest="140">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Klasse 1</x:String>
+                            <x:String>Klasse 2</x:String>
+                            <x:String>Klasse 3</x:String>
+                            <x:String>Klasse 4</x:String>
+                            <x:String>Klasse 5</x:String>
+                            <x:String>Klasse 6</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">In der Kirche :</Label>
+                <RadioButton Content="Ja"></RadioButton>
+                <RadioButton Content="Nein" IsChecked="True"></RadioButton>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Bundesland :</Label>
+                <Picker x:Name="bundesland" WidthRequest="140" SelectedIndex="0">
+                    <Picker.Items>
+                        <x:String>Berlin</x:String>
+                        <x:String>Bremen</x:String>
+                        <x:String>Hamburg</x:String>
+                        <x:String>Brandenburg</x:String>
+                        <x:String>Sachsen</x:String>
+                        <x:String>Sachsen-Anhalt</x:String>
+                        <x:String>Niedersachsen</x:String>
+                        <x:String>Schleswig-Holstein</x:String>
+                        <x:String>Mecklenburg-Vorpommern</x:String>
+                        <x:String>Nordrhein-Westfalen</x:String>
+                        <x:String>Hessen</x:String>
+                        <x:String>Thüringen</x:String>
+                        <x:String>Rheinland-Pfalz</x:String>
+                        <x:String>Saarland</x:String>
+                        <x:String>Baden-Württemberg</x:String>
+                        <x:String>Bayern</x:String>
+                    </Picker.Items>
+                </Picker>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" WidthRequest="360">Wie alt bist Du? :</Label>
+                <Editor VerticalTextAlignment="Center" MaxLength="6" WidthRequest="140" Text="25" Keyboard="Numeric"></Editor>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Kinder? :</Label>
+                <RadioButton x:Name="radioButton_yesChildren" Content="Ja" CheckedChanged="whenChildren"></RadioButton>
+                <RadioButton Content="Nein" IsChecked="True"></RadioButton>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="layout_kinderfreibetrag" IsVisible="false">
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Kinderfreibetrag :</Label>
+                <Picker x:Name="kinderfreibetrag" 
+                        SelectedIndex="0"
+                        WidthRequest="140">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>0.5</x:String>
+                            <x:String>1</x:String>
+                            <x:String>1.5</x:String>
+                            <x:String>2</x:String>
+                            <x:String>2.5</x:String>
+                            <x:String>3</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Krankenversicherung? :</Label>
+                <Picker x:Name="krankenversicherung" 
+                        SelectedIndex="0"
+                        WidthRequest="140"
+                        SelectedIndexChanged="whenHealthInsuranceChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>gesetzliche Versicherung</x:String>
+                            <x:String>private Versicherung</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout x:Name="layout_private_versicherungsbeitrag" IsVisible="false">
+                <Label VerticalTextAlignment="Center" WidthRequest="360">Wie hoch ist der Private Versicherungsbeitrag?</Label>
+                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="6" WidthRequest="140" Text="0" Keyboard="Numeric"></Editor>
+                <Label VerticalTextAlignment="Center">€</Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" WidthRequest="360">Krankenversicherung-Zusatzbeitrag :</Label>
+                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="6" WidthRequest="140" Text="1,7" Keyboard="Numeric"></Editor>
+                <Label VerticalTextAlignment="Center">%</Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Rentenversicherung ? :</Label>
+                <Picker x:Name="rentenversicherung" 
+                        SelectedIndex="0"
+                        WidthRequest="140">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>gesetzliche Versicherung</x:String>
+                            <x:String>private Versicherung</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                <Button Text="Berechnen"></Button>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

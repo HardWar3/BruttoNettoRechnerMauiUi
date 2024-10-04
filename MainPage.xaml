@@ -7,7 +7,7 @@
         <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <HorizontalStackLayout>
                 <Label VerticalTextAlignment="Center" WidthRequest="360">Butto Gehalt :</Label>
-                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="8" WidthRequest="140" Text="3000" Keyboard="Numeric"></Editor>
+                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="8" WidthRequest="140" Text="3000" Keyboard="Numeric" TextChanged="only_Numbers"></Editor>
                 <Label VerticalTextAlignment="Center">€</Label>
             </HorizontalStackLayout>
             <HorizontalStackLayout>
@@ -26,7 +26,7 @@
             </HorizontalStackLayout>
             <HorizontalStackLayout>
                 <Label VerticalTextAlignment="Center" WidthRequest="360">Versorgungsbezüge :</Label>
-                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="6" WidthRequest="140" Text="0" Keyboard="Numeric"></Editor>
+                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="6" WidthRequest="140" Text="0" Keyboard="Numeric" TextChanged="only_Numbers"></Editor>
                 <Label VerticalTextAlignment="Center">€</Label>
             </HorizontalStackLayout>
             <HorizontalStackLayout>
@@ -76,7 +76,7 @@
             </HorizontalStackLayout>
             <HorizontalStackLayout>
                 <Label VerticalTextAlignment="Center" WidthRequest="360">Wie alt bist Du? :</Label>
-                <Editor VerticalTextAlignment="Center" MaxLength="6" WidthRequest="140" Text="25" Keyboard="Numeric"></Editor>
+                <Editor VerticalTextAlignment="Center" MaxLength="6" WidthRequest="140" Text="25" Keyboard="Numeric" TextChanged="only_Numbers"></Editor>
             </HorizontalStackLayout>
             <HorizontalStackLayout>
                 <Label VerticalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="360">Kinder? :</Label>
@@ -116,12 +116,12 @@
             </HorizontalStackLayout>
             <HorizontalStackLayout x:Name="layout_private_versicherungsbeitrag" IsVisible="false">
                 <Label VerticalTextAlignment="Center" WidthRequest="360">Wie hoch ist der Private Versicherungsbeitrag?</Label>
-                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="6" WidthRequest="140" Text="0" Keyboard="Numeric"></Editor>
+                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="6" WidthRequest="140" Text="0" Keyboard="Numeric" TextChanged="only_Numbers"></Editor>
                 <Label VerticalTextAlignment="Center">€</Label>
             </HorizontalStackLayout>
             <HorizontalStackLayout>
                 <Label VerticalTextAlignment="Center" WidthRequest="360">Krankenversicherung-Zusatzbeitrag :</Label>
-                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="6" WidthRequest="140" Text="1,7" Keyboard="Numeric"></Editor>
+                <Editor VerticalTextAlignment="Center" HorizontalTextAlignment="End" MaxLength="3" WidthRequest="140" Text="1,7" Keyboard="Numeric"></Editor>
                 <Label VerticalTextAlignment="Center">%</Label>
             </HorizontalStackLayout>
             <HorizontalStackLayout>
@@ -142,5 +142,4 @@
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

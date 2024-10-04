@@ -6,6 +6,9 @@
         {
             InitializeComponent();
 
+            // lösung für contentpage höhe ändert sich durch
+            // durch optionen auto resize
+
             // TODO later check for updates
             // upcoming FIX #9150
             steuerklasse.SelectedIndex = 0;
@@ -39,6 +42,23 @@
             } else
             {
                 layout_private_versicherungsbeitrag.IsVisible = false;
+            }
+        }
+        private void only_Numbers(object sender, TextChangedEventArgs e)
+        {
+            var element = (Editor)sender;
+
+
+            var text = element.Text;
+            for (int i = 0; i < text.Length; i++)
+            {
+                char c = text[i];
+
+                if (c < '0' || c > '9')
+                {
+                    element.Text = text.Remove(i, 1);
+                    break;
+                } 
             }
         }
     }
